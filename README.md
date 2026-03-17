@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Monthsary 💌</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+}
+
+/* Container */
+#container {
+    position: relative;
+    text-align: center;
+}
+
+/* Envelope */
+.envelope {
+    width: 220px;
+    height: 150px;
+    background: #ff4d6d;
+    position: relative;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: 0.5s;
+}
+
+.envelope:before {
+    content: '';
+    position: absolute;
+    top: -75px;
+    left: 0;
+    border-left: 110px solid transparent;
+    border-right: 110px solid transparent;
+    border-bottom: 75px solid #ff4d6d;
+}
+
+/* Letter */
+.letter {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    width: 90vw;
+    max-width: 350px;
+    max-height: 70vh;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: 0.5s;
+}
+
+/* Open state */
+.open .letter {
+    transform: translateX(-50%) scale(1);
+}
+
+.open .envelope {
+    transform: translateY(160px);
+    opacity: 0.7;
+}
+
+/* Hearts */
+.heart {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: red;
+    transform: rotate(45deg);
+    animation: float 4s linear infinite;
+}
+
+.heart:before,
+.heart:after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: red;
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -7px;
+    left: 0;
+}
+
+.heart:after {
+    left: -7px;
+    top: 0;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(45deg); opacity: 0; }
+}
+
+/* Title */
+h3 {
+    color: #ff4d6d;
+}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+    <div class="envelope" onclick="openLetter()"></div>
+
+    <div class="letter">
+        <h3>💌 My Dearest Babyyy Liyann 💌</h3>
+        <p style="white-space: pre-line; font-size:14px; line-height:1.5;">
+my dearest babyyy liyann,
+
+happy 1st monthsary sa atin, mababyy 😽😽
+
+kahit first monthsary pa lang natin officially, alam ko sa sarili ko na parang ang tagal na nating magkasama,
+7 months na puno ng memories na hinding hindi ko makakalimutan.
+
+hindi man agad naging tayo, pero sa loob ng 7 months na yon, mas nakilala kita, mas minahal kita, at mas narealize ko kung gaano ako kaswerte na ikaw yung kasama ko ngayon. you’ve been my happiness, my comfort, and my safe place even before this became official 💗
+
+thank you for staying, for loving me, and for choosing me. sobrang na appreciate ko lahat yung time mo, effort mo, at yung pagmamahal na pinaparamdam mo sa akin everyday babyy
+
+now that we’re officially together, mas lalo kong pinapangako na iingatan kita, mamahalin kita, at pipiliin kita everyday. this is just the beginning of our story, and i’m excited sa mas marami pang monthsaries at anniversaries na darating sa atin babyy ko
+
+happy 1st monthsary, babyy ko 😽  
+iloveyousomuchhh, more than words can explain ❤️
+        </p>
+    </div>
+</div>
+
+<script>
+function openLetter() {
+    document.getElementById("container").classList.add("open");
+}
+
+/* Floating hearts */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 4000);
+}
+
+setInterval(createHeart, 250);
+</script>
+
+</body>
+</html>
